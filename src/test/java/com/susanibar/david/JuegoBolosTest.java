@@ -55,6 +55,7 @@ public class JuegoBolosTest {
         assertEquals(300, juegoBolos.obtenerTotalPuntos());
     }
 
+    //FIXME: Los puntos de entrada estan como string, migrar hacia arreglo de enteros de cantidad de puntos
     private void simularLanzadas(int totalLanzadas, int bolasTumbadas) {
         for (int i = 0; i < totalLanzadas; i++) {
             juegoBolos.lanzarBolos(bolasTumbadas);

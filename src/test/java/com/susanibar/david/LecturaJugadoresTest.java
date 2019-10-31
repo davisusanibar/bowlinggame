@@ -26,7 +26,7 @@ public class LecturaJugadoresTest {
         Map<String, String> contenidoArchivoPuntajeJugadores = lecturaJugadores.leerArchivoPuntajeJugadores("file/puntajeporjugador-test.txt");
 
         contenidoArchivoPuntajeJugadores.entrySet().forEach(entry -> {
-            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+            System.out.println("Key : " + entry.getKey() + ", Value : " + entry.getValue());
         });
     }
 }
