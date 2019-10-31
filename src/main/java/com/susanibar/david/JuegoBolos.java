@@ -4,7 +4,13 @@ public class JuegoBolos {
     private int posicionActual = 0;
     private int puntajeEnElJuego[] = new int [21];
 
-    public void lanzarBolos(int bolosDerribados) {
+    public void jugarJuegoBolos(int... puntajesObtenidos){
+        for (int puntaje: puntajesObtenidos) {
+            anotarPuntajeDelJuego(puntaje);
+        }
+    }
+
+    public void anotarPuntajeDelJuego(int bolosDerribados) {
         puntajeEnElJuego[posicionActual++] = bolosDerribados;
     }
 

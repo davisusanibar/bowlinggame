@@ -36,13 +36,5 @@ public class LecturaJugadores {
 
         return list;
     }
-
-    public static void main(String[] args) {
-        LecturaJugadores lecturaJugadores = new LecturaJugadores();
-
-        lecturaJugadores.validarArchivoPuntajeJugadores("file/puntajeporjugador.txt");
-
-        Map<String, String> listaLecturaJugadores = lecturaJugadores.leerArchivoPuntajeJugadores("file/puntajeporjugador.txt");
-    }
 }
 
