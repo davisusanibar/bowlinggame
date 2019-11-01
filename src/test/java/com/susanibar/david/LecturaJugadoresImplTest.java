@@ -1,5 +1,6 @@
 package com.susanibar.david;
 
+import com.susanibar.david.interfaces.LecturaJugadores;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class LecturaJugadoresTest {
+public class LecturaJugadoresImplTest {
 
     private LecturaJugadores lecturaJugadores;
     private Map<String, String> listaJugadores = new HashMap<String, String>();
@@ -17,7 +18,7 @@ public class LecturaJugadoresTest {
 
     @Before
     public void setUp() {
-        lecturaJugadores = Mockito.mock(LecturaJugadores.class);
+        lecturaJugadores = Mockito.mock(LecturaJugadoresImpl.class);
         listaJugadores.put("John", "3,7,6,3,10,8,1,10,10,9,0,7,3,4,4,10,9,0");
     }
 
