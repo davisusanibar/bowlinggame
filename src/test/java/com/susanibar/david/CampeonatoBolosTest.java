@@ -7,44 +7,35 @@ import org.mockito.Mockito;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-
-public class LecturaJugadoresTest {
+public class CampeonatoBolosTest {
 
     private LecturaJugadores lecturaJugadores;
     private Map<String, String> listaJugadores = new HashMap<String, String>();
 
-
     @Before
-    public void setUp() {
+    public void setup() {
         lecturaJugadores = Mockito.mock(LecturaJugadores.class);
         listaJugadores.put("John", "3,7,6,3,10,8,1,10,10,9,0,7,3,4,4,10,9,0");
     }
 
     @Test
-    public void validarArchivoPuntajeJugadores() {
+    public void correrCampeonatoBolos() {
+        CampeonatoBolos campeonatoBolos = new CampeonatoBolos(lecturaJugadores);
+
         Mockito.when(
                 lecturaJugadores.validarArchivoPuntajeJugadores(
                         Mockito.anyString()
                 )
         ).thenReturn(true);
 
-        assertEquals(true, lecturaJugadores.validarArchivoPuntajeJugadores("file/puntajeporjugador-test.txt"));
-    }
-
-    @Test
-    public void leerArchivoPuntajeJugadores() {
         Mockito.when(
                 lecturaJugadores.leerArchivoPuntajeJugadores (
                         Mockito.anyString()
                 )
         ).thenReturn(
-                listaJugadores
+            listaJugadores
         );
 
-        assertEquals(
-                1,
-                lecturaJugadores.leerArchivoPuntajeJugadores(Mockito.anyString()).size()
-        );
+        campeonatoBolos.correrCampeonatoBolos("file/puntajeporjugador-test.txt");
     }
 }
