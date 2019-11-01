@@ -1,17 +1,18 @@
 package com.susanibar.david;
 
+import com.susanibar.david.interfaces.JuegoBolos;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class JuegoBolosTest {
+public class JuegoBolosImplTest {
 
     JuegoBolos juegoBolos;
 
     @Before
     public void setUp() {
-        juegoBolos = new JuegoBolos();
+        juegoBolos = new JuegoBolosImpl();
     }
 
     @Test

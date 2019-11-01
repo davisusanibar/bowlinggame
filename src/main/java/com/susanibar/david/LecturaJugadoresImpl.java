@@ -1,5 +1,7 @@
 package com.susanibar.david;
 
+import com.susanibar.david.interfaces.LecturaJugadores;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -8,11 +10,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LecturaJugadores {
+public class LecturaJugadoresImpl implements LecturaJugadores {
+    @Override
     public boolean validarArchivoPuntajeJugadores(String name) {
         return Paths.get(name).toFile().exists();
     }
 
+    @Override
     public Map<String, String> leerArchivoPuntajeJugadores(String archivoPuntajeJugadores) {
         Map<String, String> list = new HashMap<>();
 

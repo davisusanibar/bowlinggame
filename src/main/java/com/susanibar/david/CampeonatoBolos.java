@@ -1,14 +1,19 @@
 package com.susanibar.david;
 
+import com.susanibar.david.interfaces.JuegoBolos;
+import com.susanibar.david.interfaces.LecturaJugadores;
+
 import java.util.Map;
 
 public class CampeonatoBolos {
 
     private LecturaJugadores lecturaJugadores;
     private JuegoBolos juegoBolos;
+    private int contador = 0;
 
     public CampeonatoBolos(LecturaJugadores lecturaJugadores) {
         this.lecturaJugadores = lecturaJugadores;
+
     }
 
     public void correrCampeonatoBolos(String nombreArchivo){
@@ -20,12 +25,14 @@ public class CampeonatoBolos {
                     .entrySet()
                     .forEach(
                             jugador -> {
-                                juegoBolos = new JuegoBolos();
+                                juegoBolos = new JuegoBolosImpl();
 
                                 int[] puntajes = Util.convertirStringArregloInt(jugador.getValue());
                                 juegoBolos.jugarJuegoBolos(puntajes);
 
-                                juegoBolos.generaraReporteCampeonato(jugador.getKey());
+                                juegoBolos.generaraReporteCampeonato(jugador.getKey(), contador);
+
+                                contador++;
                             }
                     )
             ;
@@ -35,7 +42,7 @@ public class CampeonatoBolos {
     }
 
     public static void main(String[] args) {
-        CampeonatoBolos campeonatoBolos = new CampeonatoBolos(new LecturaJugadores());
+        CampeonatoBolos campeonatoBolos = new CampeonatoBolos(new LecturaJugadoresImpl());
 
         campeonatoBolos
                 .correrCampeonatoBolos(
