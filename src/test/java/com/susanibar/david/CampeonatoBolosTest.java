@@ -36,6 +36,6 @@ public class CampeonatoBolosTest {
             listaJugadores
         );
 
-        campeonatoBolos.correrCampeonatoBolos();
+        campeonatoBolos.correrCampeonatoBolos("file/puntajeporjugador-test.txt");
     }
 }

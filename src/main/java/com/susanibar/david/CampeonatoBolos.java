@@ -11,22 +11,21 @@ public class CampeonatoBolos {
         this.lecturaJugadores = lecturaJugadores;
     }
 
-    public void correrCampeonatoBolos(){
+    public void correrCampeonatoBolos(String nombreArchivo){
 
-        if(lecturaJugadores.validarArchivoPuntajeJugadores("file/puntajeporjugador.txt")){
-            Map<String, String> contenidoArchivoPuntajeJugadores = lecturaJugadores.leerArchivoPuntajeJugadores("file/puntajeporjugador-test-spare.txt");
+        if(lecturaJugadores.validarArchivoPuntajeJugadores(nombreArchivo)){
+            Map<String, String> contenidoArchivoPuntajeJugadores = lecturaJugadores.leerArchivoPuntajeJugadores(nombreArchivo);
 
             contenidoArchivoPuntajeJugadores
                     .entrySet()
                     .forEach(
                             jugador -> {
                                 juegoBolos = new JuegoBolos();
-                                System.out.println("Persona: " + jugador.getKey() + ", ListadoPuntajesObtenidos: " + jugador.getValue());
 
                                 int[] puntajes = Util.convertirStringArregloInt(jugador.getValue());
                                 juegoBolos.jugarJuegoBolos(puntajes);
 
-                                System.out.println("TotalPuntosObtenidos: " + juegoBolos.obtenerTotalPuntos());
+                                juegoBolos.generaraReporteCampeonato(jugador.getKey());
                             }
                     )
             ;
@@ -38,6 +37,11 @@ public class CampeonatoBolos {
     public static void main(String[] args) {
         CampeonatoBolos campeonatoBolos = new CampeonatoBolos(new LecturaJugadores());
 
-        campeonatoBolos.correrCampeonatoBolos();
+        campeonatoBolos
+                .correrCampeonatoBolos(
+                        args.length==0
+                                ?"file/puntajeporjugador.txt"
+                                :args[0]
+                );
     }
 }
